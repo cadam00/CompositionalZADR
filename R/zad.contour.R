@@ -28,8 +28,8 @@ zad.contour <- function(phi, mu, n = 100, y = NULL, cont.line = FALSE) {
   b_x4 <- seq(from = 1, to = 0.5, length.out = 11)
   b_y4 <- seq(from = 0, to = sqrt3/2, length.out = 11)
 
-  par(fg = NA)
-  # Filled contoure plot in base R
+  oldpar <- par(fg = NA)
+  on.exit( par(oldpar) )
   filled.contour(x1, x2, mat,
                  # Number of levels
                  # the greater the more interpolate
